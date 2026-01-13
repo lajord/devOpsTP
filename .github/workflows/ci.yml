@@ -89,6 +89,7 @@ jobs:
         with:
           context: ./api
           file: ./api/Dockerfile-python
+          load: true
           push: false
           tags: cy-weather-api:test
           cache-from: type=gha
