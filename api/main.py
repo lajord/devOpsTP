@@ -25,7 +25,11 @@ app = FastAPI(
     openapi_url="/api/openapi.json",
 )
 
-origins = ["*"]
+origins = [
+    "http://localhost:5173",  # Dev local
+    "http://localhost:3000",
+    "https://lajord.github.io",  # GitHub Pages
+]
 
 app.add_middleware(
     CORSMiddleware,
