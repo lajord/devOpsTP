@@ -1,5 +1,6 @@
 from fastapi import FastAPI, APIRouter
 from fastapi.middleware.cors import CORSMiddleware
+from prometheus_fastapi_instrumentator import Instrumentator
 from src.resources.weather_resource import router as weather_router
 
 
@@ -49,3 +50,6 @@ async def health_check():
 
 app.include_router(router)
 app.include_router(weather_router, prefix="/api")
+
+# Configuration de Prometheus pour la collecte de métriques
+Instrumentator().instrument(app).expose(app)
