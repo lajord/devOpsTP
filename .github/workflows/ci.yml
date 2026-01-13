@@ -40,6 +40,8 @@ jobs:
           name: coverage-report
           path: api/htmlcov/
 
+
+
       - name: Check coverage threshold
         working-directory: ./api
         run: |
@@ -86,7 +88,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: ./api
-          file: ./api/Dockerfile
+          file: ./api/Dockerfile-python
           push: false
           tags: cy-weather-api:test
           cache-from: type=gha
